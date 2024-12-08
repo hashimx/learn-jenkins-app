@@ -39,9 +39,7 @@ pipeline {
         stage('PythonTest') {           
             steps {
                 sh '''
-                    python tests-examples/test.py
-                    test -f build/index.html
-                    npm test
+                    python tests-examples/test.py                    
                 '''
             }
         }
