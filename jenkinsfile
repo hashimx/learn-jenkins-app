@@ -36,7 +36,15 @@ pipeline {
                 '''
             }
         }
-        stage('PythonTest') {           
+        stage('PythonTest') {  
+            agent { 
+                    docker 
+                        { 
+                            image 'python:3.13.0-alpine3.20' 
+                            reuseNode true
+                        } 
+                    }
+
             steps {
                 sh '''
                     python tests-examples/test.py                    
